@@ -4,6 +4,9 @@
   "description": "Uses nslookup to find what the source ip of failed dmarc records point to",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "compile": "node_modules/.bin/tsc",
+    "run": "node_modules/.bin/tsc && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,5 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "typescript": "^2.0.8"
   }
 }
