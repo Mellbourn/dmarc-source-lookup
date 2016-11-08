@@ -1,7 +1,7 @@
 {
-  "name": "dmarc-nslookup",
+  "name": "dmarc-lookup",
   "version": "1.0.0",
-  "description": "Uses nslookup to find what the source ip of failed dmarc records point to",
+  "description": "Uses lookup to find what the source ip of failed dmarc records point to",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
