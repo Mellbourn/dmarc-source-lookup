@@ -1,5 +1,5 @@
 {
-  "name": "dmarc-lookup",
+  "name": "dmarc-source-lookup",
   "version": "1.0.0",
   "description": "Uses lookup to find what the source ip of failed dmarc records point to",
   "main": "index.js",
