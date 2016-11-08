@@ -18,6 +18,7 @@
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
+    "@types/xml2js": "^0.0.28",
     "typescript": "^2.0.8"
   }
 }
