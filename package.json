@@ -1,0 +1,17 @@
+{
+  "name": "dmarc-nslookup",
+  "version": "1.0.0",
+  "description": "Uses nslookup to find what the source ip of failed dmarc records point to",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dmarc"
+  ],
+  "author": "Klas Mellbourn klas@mellbourn.net",
+  "license": "ISC",
+  "dependencies": {
+    "xml2js": "^0.4.17"
+  }
+}
