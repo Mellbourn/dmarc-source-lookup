@@ -1,11 +1,12 @@
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
 import * as dns from 'dns';
+import * as glob from 'glob';
 
-const xmlFileName = process.argv[2];
+let xmlFileNameOrPattern = process.argv[2];
 
-if (!xmlFileName) {
-    throw 'Must give file name on command line';
+if (!xmlFileNameOrPattern) {
+    xmlFileNameOrPattern = "*.xml";
 }
 
 function handleRecord(record: any) {
@@ -30,11 +31,11 @@ function handleFail(source_ip: string) {
     });
 }
 
-function parseFile(xmlFileName: string) {
+function parseFile(fileName: string) {
     const parser = new xml2js.Parser();
-    fs.readFile(xmlFileName, function (err, data) {
-        if(err) {
-            throw `Could not read file "${xmlFileName}"`;
+    fs.readFile(fileName, function (err, data) {
+        if (err) {
+            throw `Could not read file "${fileName}"`;
         }
         parser.parseString(<any>data, function (err: any, parsedXml: any) {
             const records: any[] = parsedXml.feedback.record;
@@ -46,4 +47,15 @@ function parseFile(xmlFileName: string) {
     });
 }
 
-parseFile(xmlFileName);
+function findFile(filenamePattern: string) {
+    glob(filenamePattern, {}, (er, files) => {
+        if (er) {
+            throw `Could not find file matching "${filenamePattern}"`;
+        }
+        for (const fileName of files) {
+            parseFile(fileName);
+        }
+    });
+}
+
+findFile(xmlFileNameOrPattern);
