@@ -21,12 +21,11 @@ function handleRecord(record: any) {
 }
 
 function handleFail(source_ip: string) {
-    console.log('failed source_ip', source_ip);
     dns.reverse(source_ip, (err, hostnames) => {
         if (err) {
-            console.warn('failed for', source_ip);
+            console.warn('could not find hostname for: ', source_ip);
         } else {
-            console.log('hostnames:', hostnames);
+            console.log('hostnames: ', hostnames);
         }
     });
 }
