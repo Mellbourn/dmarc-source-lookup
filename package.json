@@ -4,9 +4,8 @@
   "description": "Uses lookup to find what the source ip of failed dmarc records point to",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node_modules/.bin/tsc && node index.js *.xml",
     "compile": "node_modules/.bin/tsc",
-     "run": "node_modules/.bin/tsc && node index.js *.xml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
